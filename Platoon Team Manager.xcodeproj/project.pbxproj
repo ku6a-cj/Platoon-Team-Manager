@@ -11,6 +11,8 @@
 		C9615AD529B7C8E4007133EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AD429B7C8E4007133EB /* ContentView.swift */; };
 		C9615AD729B7C8E6007133EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9615AD629B7C8E6007133EB /* Assets.xcassets */; };
 		C9615ADA29B7C8E6007133EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */; };
+		C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE029B7D2F1007133EB /* SideMenu.swift */; };
+		C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE229B7D63E007133EB /* Slide Menu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		C9615AD429B7C8E4007133EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9615AD629B7C8E6007133EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C9615AE029B7D2F1007133EB /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		C9615AE229B7D63E007133EB /* Slide Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Slide Menu.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			children = (
 				C9615AD229B7C8E4007133EB /* Platoon_Team_ManagerApp.swift */,
 				C9615AD429B7C8E4007133EB /* ContentView.swift */,
+				C9615AE029B7D2F1007133EB /* SideMenu.swift */,
 				C9615AD629B7C8E6007133EB /* Assets.xcassets */,
+				C9615AE229B7D63E007133EB /* Slide Menu.swift */,
 				C9615AD829B7C8E6007133EB /* Preview Content */,
 			);
 			path = "Platoon Team Manager";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */,
+				C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */,
 				C9615AD529B7C8E4007133EB /* ContentView.swift in Sources */,
 				C9615AD329B7C8E4007133EB /* Platoon_Team_ManagerApp.swift in Sources */,
 			);
@@ -273,8 +281,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,8 +310,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
