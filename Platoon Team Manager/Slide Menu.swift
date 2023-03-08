@@ -16,7 +16,7 @@ struct SideMenuView: View {
                 .frame(width:200.0,height: 1)
                 .background(.white)
                 .blur(radius: 0.5)
-                .padding(.top, 25.0)
+                .padding(.top, 50.0)
                 
            
                 

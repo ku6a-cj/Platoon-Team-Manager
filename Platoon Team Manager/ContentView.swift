@@ -57,17 +57,17 @@ struct ContentView: View {
                 HStack{
                     Map(coordinateRegion: $region, showsUserLocation: false,  annotationItems: places){ place in
                         MapAnnotation(coordinate: place.coordinate) {
-                                        Button {
-                                            print("Location is", place.name)
-                                        } label: {
-                                            Image(systemName: "person.crop.circle")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 10, height: 10)
-                                                .accentColor(.black)
-                                               
-                                        }
-                                    }
+                            Button {
+                                print("Location is", place.name)
+                            } label: {
+                                Image(systemName: "person.crop.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .accentColor(.black)
+                                
+                            }
+                        }
                         
                     }
                 }.onAppear{
@@ -97,7 +97,7 @@ struct ContentView: View {
                             Text("Settings")
                                 .font(.title)
                                 .foregroundColor(Color(UIColor.white))
-
+                            
                         }else{
                             Image(systemName: "text.justify")
                                 .font(.title)
@@ -108,8 +108,9 @@ struct ContentView: View {
                     .padding(.trailing)
                 }
             }
-        .ignoresSafeArea()
-        }.onAppear{
+            .ignoresSafeArea()
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
                
                 lat = coordinates.lat
