@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUI
 import MapKit
+import Combine
 
 
 struct Place: Identifiable {
@@ -20,11 +21,19 @@ var coordinate: CLLocationCoordinate2D {
   }
 }
 
+public var long = 21.02
+public var lat = 53.02
+
 struct ContentView: View {
     @State private var showMenu: Bool = false
+    @StateObject var deviceLocationService = DeviceLocationService.shared
+    @State var tokens: Set<AnyCancellable> = []
+    @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+
+    
     
     init(){
-        _ = UINavigationBarAppearance()
+        let navBarApperance = UINavigationBarAppearance()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().tintColor = UIColor.clear
@@ -32,14 +41,14 @@ struct ContentView: View {
     }
     
     
-    let places = [
+    @State var places = [
         Place(name: "Position 1", latitude: 31.21, longitude: 120.50),
-        Place(name: "Position 2", latitude: 31.210205, longitude: 120.52301),
-        Place(name: "Position 3", latitude: 31.230006, longitude: 120.54002)
+//        Place(name: "Position 2", latitude: 31.210205, longitude: 120.52301),
+//        Place(name: "Position 3", latitude: 31.230006, longitude: 120.54002)
     ]
     
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 31.21, longitude: 120.50),
+        center: CLLocationCoordinate2D(latitude: lat, longitude: long),
         span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
     )
     var body: some View {
@@ -47,7 +56,24 @@ struct ContentView: View {
             ZStack{
                 HStack{
                     Map(coordinateRegion: $region, showsUserLocation: false,  annotationItems: places){ place in
-                        MapMarker(coordinate: place.coordinate)}
+                        MapAnnotation(coordinate: place.coordinate) {
+                                        Button {
+                                            print("Location is", place.name)
+                                        } label: {
+                                            Image(systemName: "person.crop.circle")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 10, height: 10)
+                                                .accentColor(.black)
+                                               
+                                        }
+                                    }
+                        
+                    }
+                }.onAppear{
+                    observeCoordinateUpdates()
+                    observeDeniedLocationAccess()
+                    deviceLocationService.requestLocationUpdates()
                 }
                 GeometryReader{ geo in
                     
@@ -83,8 +109,48 @@ struct ContentView: View {
                 }
             }
         .ignoresSafeArea()
+        }.onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+               
+                lat = coordinates.lat
+                long = coordinates.lon
+                print(lat)
+                region = MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                    span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                )
+                places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
+            })
+           
         }
     }
+    
+    
+    
+    func observeCoordinateUpdates() {
+        deviceLocationService.coordinatesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("Handle \(completion) for error and finished subscription.")
+            } receiveValue: { coordinates in
+                self.coordinates = (coordinates.latitude, coordinates.longitude)
+            }
+            .store(in: &tokens)
+    }
+
+    func observeDeniedLocationAccess() {
+        deviceLocationService.deniedLocationAccessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {
+                print("Handle access denied event, possibly with an alert.")
+            }
+            .store(in: &tokens)
+    }
+    
+    
+    
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
