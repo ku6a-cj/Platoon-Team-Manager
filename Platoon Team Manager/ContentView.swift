@@ -29,6 +29,7 @@ struct ContentView: View {
     @StateObject var deviceLocationService = DeviceLocationService.shared
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+    @State var enemyIndex = 1
 
     
     
@@ -59,6 +60,12 @@ struct ContentView: View {
                         MapAnnotation(coordinate: place.coordinate) {
                             Button {
                                 print("Location is", place.name)
+                                if let i = places.firstIndex(where: { $0.name == place.name }) {
+                                    places.remove(at: Int(i))
+                                }
+                                
+                                
+                
                             } label: {
                                 if(place.name=="My Location"){
                                     Image(systemName: "person.crop.circle")
@@ -83,10 +90,6 @@ struct ContentView: View {
                     observeCoordinateUpdates()
                     observeDeniedLocationAccess()
                     deviceLocationService.requestLocationUpdates()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-                        places.append(Place(name: "Enemy marker", latitude: region.center.latitude, longitude: region.center.longitude))
-                    })
-                    
                 }
                 GeometryReader{ geo in
                     
@@ -96,7 +99,21 @@ struct ContentView: View {
                     }
                 }
                 .background(Color.black.opacity(showMenu ? 0.5 : 0))
-                VStack {
+                VStack(alignment: .trailing) {
+                    HStack{
+                        Button{
+                            places.append(Place(name: String(enemyIndex), latitude: region.center.latitude, longitude: region.center.longitude))
+                            print("button pressed")
+                            enemyIndex=enemyIndex+1
+                        }label: {
+                            Image(systemName: "paperplane.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .accentColor(.black)
+                        }
+                    }
+                    .padding([.top, .trailing], 20.0)
                     Spacer()
                     HStack {
                         Spacer()
@@ -131,6 +148,7 @@ struct ContentView: View {
                     }
                     .padding(.bottom, 26.0)
                 }
+                Text("+")
 
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -154,14 +172,13 @@ struct ContentView: View {
                         }
                         
                     }
-                    .padding(.trailing)
                 }
             }
             .ignoresSafeArea()
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-               
+
                 lat = coordinates.lat
                 long = coordinates.lon
                 print(lat)
@@ -172,6 +189,19 @@ struct ContentView: View {
                 places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
                 //print("My location", lat, " ... ", long)
             })
+            
+//            DispatchQueue.global(qos: .background).async {
+//                lat = coordinates.lat
+//                long = coordinates.lon
+//                print(lat)
+//                region = MKCoordinateRegion(
+//                    center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+//                    span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+//                )
+//                places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
+//            }
+            
+        
            
         }
     }
