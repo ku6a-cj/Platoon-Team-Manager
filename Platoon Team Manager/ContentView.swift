@@ -33,7 +33,7 @@ struct ContentView: View {
     
     
     init(){
-        let navBarApperance = UINavigationBarAppearance()
+        _ = UINavigationBarAppearance()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().tintColor = UIColor.clear
@@ -60,11 +60,20 @@ struct ContentView: View {
                             Button {
                                 print("Location is", place.name)
                             } label: {
-                                Image(systemName: "person.crop.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    .accentColor(.black)
+                                if(place.name=="My Location"){
+                                    Image(systemName: "person.crop.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .accentColor(.black)
+                                }else{
+                                    Image(systemName: "person.crop.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .accentColor(.red)
+                                }
+                               
                                 
                             }
                         }
@@ -74,6 +83,10 @@ struct ContentView: View {
                     observeCoordinateUpdates()
                     observeDeniedLocationAccess()
                     deviceLocationService.requestLocationUpdates()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+                        places.append(Place(name: "Enemy marker", latitude: region.center.latitude, longitude: region.center.longitude))
+                    })
+                    
                 }
                 GeometryReader{ geo in
                     
@@ -83,6 +96,42 @@ struct ContentView: View {
                     }
                 }
                 .background(Color.black.opacity(showMenu ? 0.5 : 0))
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Spacer()
+                                .padding()
+                            
+                            Button{
+                                region.span.latitudeDelta *= 0.9
+                                region.span.longitudeDelta *= 0.9
+                            }label: {
+                                Image(systemName: "plus.app")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                                    .accentColor(.black)
+                            }
+                            
+                            
+                            
+                            Button{
+                                region.span.latitudeDelta /= 0.9
+                                region.span.longitudeDelta /= 0.9
+                            }label: {
+                                Image(systemName: "minus.square")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                                    .accentColor(.black)
+                            }}
+                        .padding(.trailing, 15.0)
+                    }
+                    .padding(.bottom, 26.0)
+                }
+
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -121,6 +170,7 @@ struct ContentView: View {
                     span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
                 )
                 places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
+                //print("My location", lat, " ... ", long)
             })
            
         }
