@@ -68,7 +68,7 @@ struct ContentView: View {
                 
                             } label: {
                                 if(place.name=="My Location"){
-                                    Image(systemName: "person.crop.circle")
+                                    Image(systemName: "paperplane.fill")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 20, height: 20)
@@ -177,7 +177,19 @@ struct ContentView: View {
             .ignoresSafeArea()
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+            
+            lat = coordinates.lat
+            long = coordinates.lon
+            print(lat)
+            region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            )
+            places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
 
                 lat = coordinates.lat
                 long = coordinates.lon
@@ -190,16 +202,21 @@ struct ContentView: View {
                 //print("My location", lat, " ... ", long)
             })
             
-//            DispatchQueue.global(qos: .background).async {
-//                lat = coordinates.lat
-//                long = coordinates.lon
-//                print(lat)
-//                region = MKCoordinateRegion(
-//                    center: CLLocationCoordinate2D(latitude: lat, longitude: long),
-//                    span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-//                )
-//                places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
-//            }
+            
+            DispatchQueue.global(qos: .background).async {
+                while(true){
+                    sleep(5)
+                    print("New location")
+                    observeCoordinateUpdates()
+                    observeDeniedLocationAccess()
+                    deviceLocationService.requestLocationUpdates()
+                    lat = coordinates.lat
+                    long = coordinates.lon
+                    print(lat)
+                    places[0]  = (Place(name: "My Location", latitude: lat, longitude: long))
+                }
+                
+            }
             
         
            
