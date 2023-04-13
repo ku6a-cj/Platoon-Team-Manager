@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import SwiftUI
 import MapKit
 import Combine
+import CoreData
 
 
 struct Place: Identifiable {
@@ -25,12 +25,22 @@ public var long = 21.02
 public var lat = 53.02
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: []) // here i can sort resoults
+    private var tasks: FetchedResults<Task>
+
+    
+    
+    
+    
     @State private var showMenu: Bool = false
     @StateObject var deviceLocationService = DeviceLocationService.shared
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
     @State var enemyIndex = 1
-
+    
+    
+    
     
     
     init(){
@@ -53,6 +63,7 @@ struct ContentView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
     )
     var body: some View {
+        
         NavigationView{
             ZStack{
                 HStack{
@@ -61,9 +72,28 @@ struct ContentView: View {
                             Button {
                                 print("Location is", place.name)
                                 if let i = places.firstIndex(where: { $0.name == place.name }) {
+                                    
+                                    
+                                   //delete
+                                    print("szuaknie do usuwania",Int(i),"Places",places)
+                                    
+                                    tasks.forEach{
+                                        task in
+                                        if(task.id==Int(place.name) ?? 1){
+                                            viewContext.delete(task)
+                                            print("USUNIETO ID:",task.id)
+                                            saveContext()
+                                        }
+                                        
+                                        
+                                    }
+                                    
                                     places.remove(at: Int(i))
+                                    
                                 }
                                 
+                               
+
                                 
                 
                             } label: {
@@ -105,6 +135,13 @@ struct ContentView: View {
                             places.append(Place(name: String(enemyIndex), latitude: region.center.latitude, longitude: region.center.longitude))
                             print("button pressed")
                             enemyIndex=enemyIndex+1
+                            let newResoult = Task(context: viewContext)
+                            newResoult.id = Int32(enemyIndex)
+                            newResoult.latitude = region.center.latitude
+                            newResoult.longitude = region.center.longitude
+                                //save data
+                            print("Dodano",newResoult.id)
+                            saveContext()
                         }label: {
                             Image(systemName: "paperplane.circle")
                                 .resizable()
@@ -178,6 +215,14 @@ struct ContentView: View {
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
             
+            tasks.forEach{
+                task in
+                places.append(Place(name: String(task.id), latitude: task.latitude, longitude: task.longitude))
+                print("usu",task.id)
+                enemyIndex=Int(task.id)
+            }
+            
+            
             lat = coordinates.lat
             long = coordinates.lon
             print(lat)
@@ -246,9 +291,18 @@ struct ContentView: View {
     }
     
     
-    
-    
-    
+    private func saveContext(){
+        withAnimation(){
+            do{
+                try viewContext.save()
+            } catch {
+                let error = error as NSError
+                fatalError("Unresolved Error: \(error)")
+            }
+        }
+  
+      
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

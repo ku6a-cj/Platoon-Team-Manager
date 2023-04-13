@@ -13,6 +13,8 @@
 		C9615ADA29B7C8E6007133EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */; };
 		C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE029B7D2F1007133EB /* SideMenu.swift */; };
 		C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE229B7D63E007133EB /* Slide Menu.swift */; };
+		C9849F9A29E73DBA00F5CA0C /* Resoults.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9849F9829E73DBA00F5CA0C /* Resoults.xcdatamodeld */; };
+		C9849F9C29E73E2500F5CA0C /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9849F9B29E73E2500F5CA0C /* Persistance.swift */; };
 		C9DC069429B911A400009D4C /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC069329B911A400009D4C /* DeviceLocationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,8 @@
 		C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9615AE029B7D2F1007133EB /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		C9615AE229B7D63E007133EB /* Slide Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Slide Menu.swift"; sourceTree = "<group>"; };
+		C9849F9929E73DBA00F5CA0C /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		C9849F9B29E73E2500F5CA0C /* Persistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		C9DC069329B911A400009D4C /* DeviceLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
 		C9DC069529B918CA00009D4C /* Platoon-Team-Manager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Platoon-Team-Manager-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -61,6 +65,7 @@
 				C9DC069529B918CA00009D4C /* Platoon-Team-Manager-Info.plist */,
 				C9615AD229B7C8E4007133EB /* Platoon_Team_ManagerApp.swift */,
 				C9615AD429B7C8E4007133EB /* ContentView.swift */,
+				C9849F9729E73D8F00F5CA0C /* Database */,
 				C9615AE029B7D2F1007133EB /* SideMenu.swift */,
 				C9DC069329B911A400009D4C /* DeviceLocationService.swift */,
 				C9615AE229B7D63E007133EB /* Slide Menu.swift */,
@@ -76,6 +81,15 @@
 				C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9849F9729E73D8F00F5CA0C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C9849F9B29E73E2500F5CA0C /* Persistance.swift */,
+				C9849F9829E73DBA00F5CA0C /* Resoults.xcdatamodeld */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,8 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9849F9C29E73E2500F5CA0C /* Persistance.swift in Sources */,
 				C9DC069429B911A400009D4C /* DeviceLocationService.swift in Sources */,
 				C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */,
+				C9849F9A29E73DBA00F5CA0C /* Resoults.xcdatamodeld in Sources */,
 				C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */,
 				C9615AD529B7C8E4007133EB /* ContentView.swift in Sources */,
 				C9615AD329B7C8E4007133EB /* Platoon_Team_ManagerApp.swift in Sources */,
@@ -361,6 +377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9849F9829E73DBA00F5CA0C /* Resoults.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9849F9929E73DBA00F5CA0C /* DataBase.xcdatamodel */,
+			);
+			currentVersion = C9849F9929E73DBA00F5CA0C /* DataBase.xcdatamodel */;
+			path = Resoults.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9615AC729B7C8E3007133EB /* Project object */;
 }

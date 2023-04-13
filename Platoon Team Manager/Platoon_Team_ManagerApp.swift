@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Platoon_Team_ManagerApp: App {
+    let persistanceContainer = PersistanceController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistanceContainer.containter.viewContext )
         }
     }
 }
