@@ -34,6 +34,8 @@ struct ContentView: View {
     
     
     @State private var showMenu: Bool = false
+    @State private var azimuth: String = ""
+    @State private var presentAlert = false
     @StateObject var deviceLocationService = DeviceLocationService.shared
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
@@ -57,7 +59,7 @@ struct ContentView: View {
 //        Place(name: "Position 2", latitude: 31.210205, longitude: 120.52301),
 //        Place(name: "Position 3", latitude: 31.230006, longitude: 120.54002)
     ]
-    
+
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: lat, longitude: long),
         span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
@@ -131,6 +133,24 @@ struct ContentView: View {
                 .background(Color.black.opacity(showMenu ? 0.5 : 0))
                 VStack(alignment: .trailing) {
                     HStack{
+                        //button to set azimuth
+                        Button{
+                            presentAlert = true
+                        }label: {
+                            Image(systemName: "network")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .accentColor(.black)
+                        }  .alert("Azimuth", isPresented: $presentAlert, actions: {
+                            TextField("Enter Azimuth", text: $azimuth)
+                            Button("Find direction", action: {})
+                            Button("Cancel", role: .cancel, action: {})
+                        }, message: {
+                            Text("Please enter your azimuth angle.")
+                        })
+                        
+                        
                         Button{
                             places.append(Place(name: String(enemyIndex), latitude: region.center.latitude, longitude: region.center.longitude))
                             print("button pressed")
@@ -149,6 +169,7 @@ struct ContentView: View {
                                 .frame(width: 40, height: 40)
                                 .accentColor(.black)
                         }
+                       
                     }
                     .padding([.top, .trailing], 20.0)
                     Spacer()
