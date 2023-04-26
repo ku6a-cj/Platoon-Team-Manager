@@ -144,7 +144,7 @@ struct ContentView: View {
                         Button{
                             presentAlert = true
                         }label: {
-                            Image(systemName: "network")
+                            Image(systemName: "a.circle.fill")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40, height: 40)
@@ -153,7 +153,7 @@ struct ContentView: View {
                             TextField("Enter Azimuth", text: $azimuth)
                             TextField("Enter Distance [m]", text: $azimuthDistance)
                             Button("Find direction", action: {
-                                //accuracy could be Better but its good enough 
+                                //accuracy could be Better but its good enough
                                 let AzymLat=lat+(cos(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
                                 let AzymLong=long+(sin(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
                                 
@@ -235,7 +235,7 @@ struct ContentView: View {
                             Image(systemName: "xmark")
                                 .font(.title)
                                 .foregroundColor(Color(UIColor.black))
-                            Text("Settings")
+                            Text("MENU")
                                 .font(.title)
                                 .foregroundColor(Color(UIColor.white))
                             

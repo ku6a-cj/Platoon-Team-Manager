@@ -81,7 +81,7 @@ struct SideMenuView: View {
             Spacer()
         }
         .padding(16)
-        .background(Color.gray)
+        .background(Color(UIColor.darkGray))
         .edgesIgnoringSafeArea(.bottom)
     }
 }
