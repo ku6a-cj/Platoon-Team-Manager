@@ -154,10 +154,14 @@ struct ContentView: View {
                             TextField("Enter Distance [m]", text: $azimuthDistance)
                             Button("Find direction", action: {
                                 //accuracy could be Better but its good enough
-                                let AzymLat=lat+(cos(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
-                                let AzymLong=long+(sin(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
+                                let  AzymLat : Double=lat+(cos(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
+                                let AzymLong: Double=long+(sin(deg2rad(Double(azimuth) ?? 0))*(Double(azimuthDistance) ?? 0)*0.000009*1.53846153846)
                                 
-                                places.append(Place(name: "Azimuth", latitude: AzymLat, longitude: AzymLong))
+                                if !(AzymLat==lat||AzymLong==long){
+                                    places.append(Place(name: "Azimuth", latitude: AzymLat, longitude: AzymLong))
+                                }
+                                
+                                
                                 azimuth = ""
                                 azimuthDistance=""
                             })
