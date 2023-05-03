@@ -10,7 +10,7 @@ import SwiftUI
 struct SideMenuView: View {
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             
             Divider()
                 .frame(width:200.0,height: 1)
@@ -21,11 +21,12 @@ struct SideMenuView: View {
            
                 
             HStack {
-                Image(systemName: "globe.europe.africa")
+                Image(systemName: "person.crop.circle")
                     .foregroundColor(Color.white)
                 
-                        Text("PLACEHOLDER")
-                    
+                NavigationLink(destination: PointsDataBaseDisplay()){
+                    Text("Points Database")
+                }
                     .font(.title)
                 .foregroundColor(.white)
             }
@@ -33,46 +34,32 @@ struct SideMenuView: View {
             
             
             HStack {
-                Image(systemName: "figure.climbing")
+                Image(systemName: "figure.dance")
                     .foregroundColor(Color.white)
                 
                 
-                    Text("PLACEHOLDER")
+                NavigationLink(destination: FitnessCalc()){
+                    Text("Fitness Calculator")
+                }
                 
                 .font(.title)
             .foregroundColor(.white)
             }
             
             HStack {
-                Image(systemName: "chart.bar.xaxis")
+                Image(systemName: "shareplay")
                     .foregroundColor(Color.white)
                 
-                Text("PLACEHOLDER")
+                NavigationLink(destination: GitView()){
+                    Text("Git")
+                }
                
                 .font(.title)
             .foregroundColor(.white)
             }
             
             
-            HStack {
-                Image(systemName: "newspaper")
-                    .foregroundColor(Color.white)
-               
-                Text("PLACEHOLDER")
-                
-                .font(.title)
-            .foregroundColor(.white)
-            }
-            
-            HStack {
-                Image(systemName: "calendar.badge.exclamationmark")
-                    .foregroundColor(Color.white)
            
-                Text("PLACEHOLDER")
-                
-                .font(.title)
-            .foregroundColor(.white)
-            }
             
             
       

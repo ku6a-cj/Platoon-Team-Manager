@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C900E66F2A02A7D100D3857A /* PointsDataBaseDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E66E2A02A7D100D3857A /* PointsDataBaseDisplay.swift */; };
+		C900E6712A02AA7B00D3857A /* DataBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E6702A02AA7B00D3857A /* DataBaseView.swift */; };
+		C900E67F2A02B02B00D3857A /* HRmaxStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E6732A02B02B00D3857A /* HRmaxStruct.swift */; };
+		C900E6832A02B02B00D3857A /* HRmaxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E6792A02B02B00D3857A /* HRmaxViewModel.swift */; };
+		C900E6842A02B02B00D3857A /* HRmaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E67A2A02B02B00D3857A /* HRmaxView.swift */; };
+		C900E6852A02B02B00D3857A /* FitnessCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E67B2A02B02B00D3857A /* FitnessCalc.swift */; };
+		C900E6862A02B02B00D3857A /* BmiCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E67C2A02B02B00D3857A /* BmiCalc.swift */; };
+		C900E6872A02B02B00D3857A /* BmiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E67D2A02B02B00D3857A /* BmiViewModel.swift */; };
+		C900E6882A02B02B00D3857A /* BmiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E67E2A02B02B00D3857A /* BmiStruct.swift */; };
+		C900E68A2A02B7ED00D3857A /* GitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E6892A02B7ED00D3857A /* GitView.swift */; };
+		C900E68C2A02B82200D3857A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900E68B2A02B82200D3857A /* WebView.swift */; };
 		C9615AD329B7C8E4007133EB /* Platoon_Team_ManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AD229B7C8E4007133EB /* Platoon_Team_ManagerApp.swift */; };
 		C9615AD529B7C8E4007133EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AD429B7C8E4007133EB /* ContentView.swift */; };
 		C9615AD729B7C8E6007133EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9615AD629B7C8E6007133EB /* Assets.xcassets */; };
 		C9615ADA29B7C8E6007133EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */; };
-		C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE029B7D2F1007133EB /* SideMenu.swift */; };
 		C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9615AE229B7D63E007133EB /* Slide Menu.swift */; };
 		C9849F9A29E73DBA00F5CA0C /* Resoults.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9849F9829E73DBA00F5CA0C /* Resoults.xcdatamodeld */; };
 		C9849F9C29E73E2500F5CA0C /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9849F9B29E73E2500F5CA0C /* Persistance.swift */; };
@@ -19,12 +29,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C900E66E2A02A7D100D3857A /* PointsDataBaseDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsDataBaseDisplay.swift; sourceTree = "<group>"; };
+		C900E6702A02AA7B00D3857A /* DataBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseView.swift; sourceTree = "<group>"; };
+		C900E6732A02B02B00D3857A /* HRmaxStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRmaxStruct.swift; sourceTree = "<group>"; };
+		C900E6792A02B02B00D3857A /* HRmaxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRmaxViewModel.swift; sourceTree = "<group>"; };
+		C900E67A2A02B02B00D3857A /* HRmaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRmaxView.swift; sourceTree = "<group>"; };
+		C900E67B2A02B02B00D3857A /* FitnessCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessCalc.swift; sourceTree = "<group>"; };
+		C900E67C2A02B02B00D3857A /* BmiCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BmiCalc.swift; sourceTree = "<group>"; };
+		C900E67D2A02B02B00D3857A /* BmiViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BmiViewModel.swift; sourceTree = "<group>"; };
+		C900E67E2A02B02B00D3857A /* BmiStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BmiStruct.swift; sourceTree = "<group>"; };
+		C900E6892A02B7ED00D3857A /* GitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitView.swift; sourceTree = "<group>"; };
+		C900E68B2A02B82200D3857A /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C9615ACF29B7C8E4007133EB /* Platoon Team Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Platoon Team Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9615AD229B7C8E4007133EB /* Platoon_Team_ManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platoon_Team_ManagerApp.swift; sourceTree = "<group>"; };
 		C9615AD429B7C8E4007133EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9615AD629B7C8E6007133EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9615AD929B7C8E6007133EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C9615AE029B7D2F1007133EB /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		C9615AE229B7D63E007133EB /* Slide Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Slide Menu.swift"; sourceTree = "<group>"; };
 		C9849F9929E73DBA00F5CA0C /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		C9849F9B29E73E2500F5CA0C /* Persistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
@@ -43,6 +63,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C900E6722A02B02B00D3857A /* FitnessCalc */ = {
+			isa = PBXGroup;
+			children = (
+				C900E6732A02B02B00D3857A /* HRmaxStruct.swift */,
+				C900E6792A02B02B00D3857A /* HRmaxViewModel.swift */,
+				C900E67A2A02B02B00D3857A /* HRmaxView.swift */,
+				C900E67B2A02B02B00D3857A /* FitnessCalc.swift */,
+				C900E67C2A02B02B00D3857A /* BmiCalc.swift */,
+				C900E67D2A02B02B00D3857A /* BmiViewModel.swift */,
+				C900E67E2A02B02B00D3857A /* BmiStruct.swift */,
+			);
+			path = FitnessCalc;
+			sourceTree = "<group>";
+		};
 		C9615AC629B7C8E3007133EB = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +99,11 @@
 				C9DC069529B918CA00009D4C /* Platoon-Team-Manager-Info.plist */,
 				C9615AD229B7C8E4007133EB /* Platoon_Team_ManagerApp.swift */,
 				C9615AD429B7C8E4007133EB /* ContentView.swift */,
+				C900E6722A02B02B00D3857A /* FitnessCalc */,
 				C9849F9729E73D8F00F5CA0C /* Database */,
-				C9615AE029B7D2F1007133EB /* SideMenu.swift */,
 				C9DC069329B911A400009D4C /* DeviceLocationService.swift */,
+				C900E6892A02B7ED00D3857A /* GitView.swift */,
+				C900E68B2A02B82200D3857A /* WebView.swift */,
 				C9615AE229B7D63E007133EB /* Slide Menu.swift */,
 				C9615AD629B7C8E6007133EB /* Assets.xcassets */,
 				C9615AD829B7C8E6007133EB /* Preview Content */,
@@ -86,6 +122,8 @@
 		C9849F9729E73D8F00F5CA0C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				C900E6702A02AA7B00D3857A /* DataBaseView.swift */,
+				C900E66E2A02A7D100D3857A /* PointsDataBaseDisplay.swift */,
 				C9849F9B29E73E2500F5CA0C /* Persistance.swift */,
 				C9849F9829E73DBA00F5CA0C /* Resoults.xcdatamodeld */,
 			);
@@ -164,11 +202,21 @@
 			files = (
 				C9849F9C29E73E2500F5CA0C /* Persistance.swift in Sources */,
 				C9DC069429B911A400009D4C /* DeviceLocationService.swift in Sources */,
-				C9615AE129B7D2F1007133EB /* SideMenu.swift in Sources */,
+				C900E6862A02B02B00D3857A /* BmiCalc.swift in Sources */,
 				C9849F9A29E73DBA00F5CA0C /* Resoults.xcdatamodeld in Sources */,
+				C900E6832A02B02B00D3857A /* HRmaxViewModel.swift in Sources */,
 				C9615AE329B7D63E007133EB /* Slide Menu.swift in Sources */,
 				C9615AD529B7C8E4007133EB /* ContentView.swift in Sources */,
+				C900E68A2A02B7ED00D3857A /* GitView.swift in Sources */,
+				C900E6842A02B02B00D3857A /* HRmaxView.swift in Sources */,
+				C900E6872A02B02B00D3857A /* BmiViewModel.swift in Sources */,
+				C900E6712A02AA7B00D3857A /* DataBaseView.swift in Sources */,
+				C900E68C2A02B82200D3857A /* WebView.swift in Sources */,
+				C900E66F2A02A7D100D3857A /* PointsDataBaseDisplay.swift in Sources */,
+				C900E6852A02B02B00D3857A /* FitnessCalc.swift in Sources */,
 				C9615AD329B7C8E4007133EB /* Platoon_Team_ManagerApp.swift in Sources */,
+				C900E67F2A02B02B00D3857A /* HRmaxStruct.swift in Sources */,
+				C900E6882A02B02B00D3857A /* BmiStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

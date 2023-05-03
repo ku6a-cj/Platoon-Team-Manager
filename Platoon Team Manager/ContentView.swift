@@ -234,6 +234,24 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading){
                     Button{
                         self.showMenu.toggle()
+                        
+                        places=[
+                            Place(name: "Position 1", latitude: 31.21, longitude: 120.50),]
+                        
+                        tasks.forEach{
+                            task in
+                            places.append(Place(name: String(task.id), latitude: task.latitude, longitude: task.longitude))
+                            print("usu",task.id)
+                            enemyIndex=Int(task.id)
+                        }
+                        
+                        
+                        lat = coordinates.lat
+                        long = coordinates.lon
+                        
+                        places.insert(Place(name: "My Location", latitude: lat, longitude: long), at: 0)
+                        
+                        
                     } label: {
                         if(showMenu){
                             Image(systemName: "xmark")
