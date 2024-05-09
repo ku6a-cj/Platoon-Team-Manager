@@ -73,31 +73,26 @@ struct ContentView: View {
                     Map(coordinateRegion: $region, showsUserLocation: false,  annotationItems: places){ place in
                         MapAnnotation(coordinate: place.coordinate) {
                             Button {
-                                print("Location is", place.name)
-                                if let i = places.firstIndex(where: { $0.name == place.name }) {
-                                    
-                                    
-                                   //delete
-                                    print("szuaknie do usuwania",Int(i),"Places",places)
-                                    
-                                    tasks.forEach{
-                                        task in
-                                        if(task.id==Int(place.name) ?? 1){
-                                            viewContext.delete(task)
-                                            print("USUNIETO ID:",task.id)
-                                            saveContext()
-                                        }
-                                        
-                                        
-                                    }
-                                    
-                                    places.remove(at: Int(i))
-                                    
-                                }
+                                let alert = UIAlertController(title: "Delete location marker", message: "Are you sure you want to delete this marker?", preferredStyle: .alert)
+                                       
+                                       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                                       
+                                       alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                                 
-                               
+                                           if let i = places.firstIndex(where: { $0.name == place.name }) {
+                                               tasks.forEach { task in
+                                                   if task.id == Int(place.name) ?? 1 {
+                                                       viewContext.delete(task)
+                                                       print("USUNIETO ID:", task.id)
+                                                       saveContext()
+                                                   }
+                                               }
+                                               places.remove(at: Int(i))
+                                           }
+                                       }))
+                             
 
-                                
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
                 
                             } label: {
                                 if(place.name=="My Location"){
