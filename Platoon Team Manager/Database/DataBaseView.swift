@@ -12,6 +12,7 @@ struct DataBaseView: View {
     @State var ID = "0.0"
     @State var Latitude = "0.0"
     @State var Longitude = "0.0"
+    @State var `MType` = "def"
 
     var body: some View {
         HStack{
@@ -26,6 +27,14 @@ struct DataBaseView: View {
                                 .padding(.top, 6)
                             .foregroundColor(isSelected ? .white : .black)
                             
+                        }
+                        HStack {
+                            Image(systemName: "person.crop.circle.badge.questionmark.fill")
+                                .foregroundColor(isSelected ? .white : .black)
+                            Text("Type: \(MType)")
+                                .font(.headline)
+                                .padding(.top, 6)
+                            .foregroundColor(isSelected ? .white : .black)
                         }
                         HStack {
                             Image(systemName: "arrow.left")

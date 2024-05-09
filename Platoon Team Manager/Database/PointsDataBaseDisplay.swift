@@ -20,7 +20,7 @@ struct PointsDataBaseDisplay: View {
        
                     ForEach(tasks) { task in
                         VStack(spacing: -60) {
-                            DataBaseView( ID: String(task.id) , Latitude: String(task.latitude) , Longitude: String( task.longitude) )
+                            DataBaseView( ID: String(task.id) , Latitude: String(task.latitude) , Longitude: String( task.longitude) , MType: String(task.markerType ?? "Undefined"))
                     }
                     .padding(.vertical, -35.0)
                     }.onDelete(perform: deleteTasks)
