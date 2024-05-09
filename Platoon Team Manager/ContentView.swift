@@ -180,7 +180,7 @@ struct ContentView: View {
                             newResoult.latitude = region.center.latitude
                             newResoult.longitude = region.center.longitude
                                 //save data
-                            print("Dodano",newResoult.id)
+                            print("Added",newResoult.id)
                             saveContext()
                         }label: {
                             Image(systemName: "paperplane.circle")
